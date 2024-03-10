@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime
+from models.__init__ import storage
 
 
 class BaseModel:
@@ -18,15 +19,17 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key != '__class__':
                     if key == 'created_at':
-                        self.created_at = datetime.strptime(kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                        self.created_at = datetime.now()
                     elif key == 'updated_at':
-                        self.updated_at = datetime.strptime(kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                        self.updated_at = datetime.now()
                     else:
                         setattr(self, key, value)
+                        storage.new(self)
         else:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            self.id = str(uuid.uuid4())
+            self.id = uuid.uuid4().hex
+            storage.new(self)
 
     def __str__(self):
         """" Retruns a string of the BaseModel instance """
@@ -37,6 +40,7 @@ class BaseModel:
         """ Update public instance update_at with the current save time """
 
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """creates a dictionary containg all key and values of self.__dict__"""
