@@ -7,21 +7,20 @@ from models.base_model import BaseModel
 class HBNBCommand(cmd.Cmd):
     '''AirBnb Command Processor'''
 
-    intro = "CLI for AirBnB app"
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
 
     def emptyline(self):
         """Do nothing for no command pass"""
         pass
 
-    def do_create(self,arg):
+    def do_create(self, arg):
         """Usage: create <class>
         create a new class and print its id
         """
         argument_p = parse(arg)
         if len(argument_p):
             if argument_p[0] not in HBNBCommand.__classes:
-                print ("** class doesn't exist **")
+                print("** class doesn't exist **")
             else:
                 print(eval(argument_p[0]).id)
                 storage.save()
