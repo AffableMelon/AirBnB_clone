@@ -4,10 +4,13 @@ from shlex import split
 from models.base_model import BaseModel
 
 
-
 class HBNBCommand(cmd.Cmd):
-    '''AirBnb Command Processor'''
-
+    """
+    AirBnb Command Processor
+    Attributes:
+        prompt (str): The command prompt.
+    """
+    
     prompt = "(hbnb) "
 
     def emptyline(self):
@@ -27,12 +30,11 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
 
     def do_quit(self, line):
-        '''Quit command to exit program '''
+        """Quit command to exit program """
         return (True)
 
     def do_EOF(self, line):
-        '''End of file'''
-        print("")
+        """End of file """
         return (True)
 
 
