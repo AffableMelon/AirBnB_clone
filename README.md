@@ -15,7 +15,8 @@ The track for the next few months is to deploy a front end website showing the f
 		Do operations on objects (count, compute stats, etc…)
 		Update attributes of an object
 		Destroy an object
-BaseModel (class) - takes care of initialization,  serialization and deserialization
+### BaseModel (class) 
+	takes care of initialization,  serialization and deserialization
 Create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file:
 	-You can’t store and restore a Python instance of a class as “Bytes”, the only way is to convert it to a serializable data
 	structure:

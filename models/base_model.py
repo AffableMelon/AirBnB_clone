@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-"""BaseModel class
-"""
+"""BaseModel class"""
 import uuid
 import models
 from datetime import datetime
 
 
 class BaseModel:
-    """ Defines all common attributes and methods for other classes
-    """
+    """ Defines all common attributes and methods for other classes"""
 
     def __init__(self, *args, **kwargs):
         """
@@ -36,21 +34,18 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-        """"Retruns a string of the BaseModel instance
-        """
+        """"Retruns a string of the BaseModel instance"""
 
         return (f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
 
     def save(self):
-        """ Update public instance update_at with the current save time
-        """
+        """ Update public instance update_at with the current save time"""
 
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """ Creates a dictionary containg all key and values of self.__dict__
-        """
+        """Creates a dictionary containg all key and values of self.__dict__"""
 
         CpDict = self.__dict__.copy()
         CpDict['__class__'] = self.__class__.__name__
