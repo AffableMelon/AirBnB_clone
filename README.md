@@ -1,10 +1,13 @@
+# Welcome to AirBnB clone project version 1
+
+<p>
 The final goal of the project is to deploy my own server as a simple copy of the AirBnB website.
 On this part of the poject I will work on the command interpreter to manipulate data without any gui.
 The track for the next few months is to deploy a front end website showing the final product, forming a database to store data and objects, an API that provides a commmunication interface between front end and back end data. (Retrieve Create Delete Update...)
+</p>
 
-
-First Step-
-Building our own COMMAND INTERPRETER!!!
+## First Step-
+### Building our own COMMAND INTERPRETER!!!
 	-Very vital for the rest of the comming projects (milestones above)
 	-Manages the followinng:
 		- Create a new object (ex: a new User or a new Place)
