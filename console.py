@@ -4,6 +4,7 @@ from shlex import split
 from models.base_model import BaseModel
 
 
+
 class HBNBCommand(cmd.Cmd):
     '''AirBnb Command Processor'''
 
