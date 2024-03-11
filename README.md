@@ -6,15 +6,15 @@ On this part of the poject I will work on the command interpreter to manipulate 
 The track for the next few months is to deploy a front end website showing the final product, forming a database to store data and objects, an API that provides a commmunication interface between front end and back end data. (Retrieve Create Delete Update...)
 </p>
 
-## First Step-
+## First Step
 ### Building our own COMMAND INTERPRETER!!!
-	-Very vital for the rest of the comming projects (milestones above)
-	-Manages the followinng:
-		- Create a new object (ex: a new User or a new Place)
-		- Retrieve an object from a file, a database etc…
-		- Do operations on objects (count, compute stats, etc…)
-		- Update attributes of an object
-		- Destroy an object
+	Very vital for the rest of the comming projects (milestones above)
+	Manages the followinng:
+		Create a new object (ex: a new User or a new Place)
+		Retrieve an object from a file, a database etc…
+		Do operations on objects (count, compute stats, etc…)
+		Update attributes of an object
+		Destroy an object
 BaseModel (class) - takes care of initialization,  serialization and deserialization
 Create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file:
 	-You can’t store and restore a Python instance of a class as “Bytes”, the only way is to convert it to a serializable data

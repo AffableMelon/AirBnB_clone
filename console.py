@@ -16,15 +16,13 @@ class HBNBCommand(cmd.Cmd):
         save to json file
         print id
         '''
-        class_name = line.split()[0]
+        class_name = line.shlex.split()[0]
         if not line:
             print("*** class name missing ***")
-        elif class_name not in self.__dict__:
+        elif class_name not in self.classes.keys():
             print (" *** class doesn't exist ***")
-        else:
-            new_instance = self.__class__.__name__
-            new_instance.save()
-            print(new_instance.id)
+        
+
 
 
     def do_quit(self, line):
