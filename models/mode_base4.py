@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
 import uuid
+import models
 from datetime import datetime
-from models.__init__ import storage
 
 
 class BaseModel:
@@ -24,12 +25,12 @@ class BaseModel:
                         self.updated_at = datetime.now()
                     else:
                         setattr(self, key, value)
-                        storage.new(self)
+                        models.storage.new(self)
         else:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             self.id = uuid.uuid4().hex
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """" Retruns a string of the BaseModel instance """
@@ -40,13 +41,13 @@ class BaseModel:
         """ Update public instance update_at with the current save time """
 
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """creates a dictionary containg all key and values of self.__dict__"""
 
-        copied_dict = self.__dict__.copy()
-        copied_dict['__class__'] = self.__class__.__name__
-        copied_dict['updated_at'] = self.updated_at.isoformat()
-        copied_dict['created_at'] = self.created_at.isoformat()
-        return(copied_dict)
+        CpDict = self.__dict__.copy()
+        CpDict['__class__'] = self.__class__.__name__
+        CpDict['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        CpDict['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        return(CpDict)
